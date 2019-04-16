@@ -25,3 +25,4 @@ yarn.lock
 
 # others
 .DS_Store
+*.nupkg

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+    <metadata>
+        <!-- The identifier that must be unique within the hosting gallery -->
+        <id>PushDataToUrl</id>
+
+        <!-- The package version number that is used when resolving dependencies -->
+        <version>1.0.0</version>
+
+        <!-- Authors contain text that appears directly on the gallery -->
+        <authors>Manish Baral</authors>
+
+        <!--
+            Owners are typically nuget.org identities that allow gallery
+            users to easily find other packages by the same owners.
+        -->
+        <owners>Manish Baral</owners>
+
+         <!-- Project URL provides a link for the gallery -->
+        <projectUrl>https://github.com/baralmanish/push-data-to-url/</projectUrl>
+
+         <!-- License information is displayed on the gallery -->
+        <license type="expression">MIT</license>
+
+
+        <!-- The icon is used in Visual Studio's package manager UI -->
+        <iconUrl>https://github.com/baralmanish/push-data-to-url/blob/master/example/logo.gif</iconUrl>
+
+        <!--
+            If true, this value prompts the user to accept the license when
+            installing the package.
+        -->
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+
+        <!-- Any details about this particular release -->
+        <!-- <releaseNotes>Bug fixes and performance improvements</releaseNotes> -->
+
+        <!--
+            The description can be used in package manager UI. Note that the
+            nuget.org gallery uses information you add in the portal.
+        -->
+        <description>This is a plugin to add, update and remove data to url params without reloading the webpage.</description>
+
+        <!-- Copyright information -->
+        <copyright>Copyright ©2019 Manish Baral</copyright>
+
+        <!-- Tags appear in the gallery and can be used for tag searches -->
+        <tags>web utility jquery-plugin npm-package jquery plugin urlparams url-parameters</tags>
+
+        <!-- Dependencies are automatically installed when the package is installed -->
+        <!-- <dependencies>
+            <dependency id="Newtonsoft.Json" version="9.0" />
+        </dependencies> -->
+    </metadata>
+
+    <!-- A README.md to display when the package is installed -->
+    <files>
+        <file src="README.md" target="" />
+    </files>
+</package>

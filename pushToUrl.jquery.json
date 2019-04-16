@@ -1,7 +1,7 @@
 {
   "name": "pushToUrl",
   "title": "Push Data to URL Params",
-  "description": "jQuery plugin for color manipulation and animation support.",
+  "description": "This is a plugin to add, update and remove data to url params without reloading the webpage.",
   "keywords": [
       "pushDataToUrl",
       "npm",
