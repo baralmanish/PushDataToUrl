@@ -1,54 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
-	<title>Push To Url JQuery Plugin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>Push To Url JQuery Plugin</title>
 
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+  <!-- Custom styles for this template -->
+  <link href="https://getbootstrap.com/docs/4.3/examples/sticky-footer-navbar/sticky-footer-navbar.css" rel="stylesheet">
 
 </head>
-<body>
-	<div>
-		<input name="key" value="" id="key"/>
-		<input name="value" value="" id="value"/>
-		<button id="addParam">click here</button>
-	</div>
-	<div>
-		<input name="key" value="" id="key1"/>
-		<button id="remove">Remove</button>
-	</div>
-	<button id="removeAll">Remove All</button>
+<body class="d-flex flex-column h-100">
+  <header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">PUSH VALUE TO URL PARAMETERS</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="example.html">Example</a>
+          </li>
+        </ul>
+      </div> -->
+    </nav>
+  </header>
+
+  <!-- Begin page content -->
+  <main role="main" class="flex-shrink-0">
+      <div class="container">
+        <h1 class="mt-5">Code Documentation</h1>
+
+        <h2 class="mt-5">Add key and value to url params</h2>
+        <p class="lead">
+            <code>$('body').pushToUrl('add', {key: key, value: value});</code>
+          </p>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Key</label>
+              <input type="text" name="key" value="" id="key" class="form-control" />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Value</label>
+              <input type="text" name="value" value="" id="value" class="form-control" />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <button type="button" id="add" class="btn btn-primary" style="margin-top: 32px;">
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="mt-5">Delete selected key from url params</h2>
+        <p class="lead">
+          <code>$('body').pushToUrl('removeSelectedKey', {key: key});</code>
+        </p>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Key</label>
+              <input type="text" name="key" value="" id="key1" class="form-control" />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <button type="button" id="removeSelected" class="btn btn-primary" style="margin-top: 32px;">
+                Remove Selected
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="mt-5">Remove all url params</h2>
+        <p class="lead mb-5">
+          <code>$('body').pushToUrl('removeAll');</code>
+          <br/><br/>
+          <button type="button" id="removeAll" class="btn btn-primary">
+              Remove All
+            </button>
+        </p>
+      </div>
+    </main>
+
+    <footer class="footer mt-auto py-3">
+      <div class="container">
+        <span class="text-muted">
+            Copyright (c) 2019 Manish Baral <a href="mailto:mail.aarman@gmail.com">mail.aarman@gmail.com</a>
+        </span>
+      </div>
+    </footer>
 
 
-	<script
-			  src="https://code.jquery.com/jquery-3.4.0.min.js"
-			  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
-			  crossorigin="anonymous"></script>
-	<script type="text/javascript" src="../src/pushToUrl.jQuery.js"></script>
-	<script type="text/javascript">
-		$('body').pushToUrl();
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+  <script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 
-		$('#addParam').click(function () {
-			var key = $('#key').val();
-			var value = $('#value').val();
-			$('body').pushToUrl('add', {
-				key: key,
-				value: value,
-			});
-		});
+  <script type="text/javascript" src="../lib/pushToUrl.jQuery.js"></script>
+  <script type="text/javascript">
+    $('body').pushToUrl();
 
-		$('#remove').click(function () {
-			var key = $('#key1').val();
-			$('body').pushToUrl('removeSelectedKey', {
-				key: key
-			});
-		});
+    $('#add').click(function () {
+      var key = $('#key').val();
+      var value = $('#value').val();
+      $('body').pushToUrl('add', {
+        key: key,
+        value: value,
+      });
+      $('input[type=text]').val('');
+    });
 
-		$('#removeAll').click(function () {
-			$('body').pushToUrl('removeAll');
-		});
-	</script>
+    $('#removeSelected').click(function () {
+      var key = $('#key1').val();
+      $('body').pushToUrl('removeSelectedKey', {
+        key: key
+      });
+      $('input[type=text]').val('');
+    });
+
+    $('#removeAll').click(function () {
+      $('body').pushToUrl('removeAll');
+    });
+  </script>
 </body>
 </html>
