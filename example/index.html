@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<title>Push To Url JQuery Plugin</title>
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+	<div>
+		<input name="key" value="" id="key"/>
+		<input name="value" value="" id="value"/>
+		<button id="addParam">click here</button>
+	</div>
+	<div>
+		<input name="key" value="" id="key1"/>
+		<button id="remove">Remove</button>
+	</div>
+	<button id="removeAll">Remove All</button>
+
+
+	<script
+			  src="https://code.jquery.com/jquery-3.4.0.min.js"
+			  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+			  crossorigin="anonymous"></script>
+	<script type="text/javascript" src="../src/pushToUrl.jQuery.js"></script>
+	<script type="text/javascript">
+		$('body').pushToUrl();
+
+		$('#addParam').click(function () {
+			var key = $('#key').val();
+			var value = $('#value').val();
+			$('body').pushToUrl('add', {
+				key: key,
+				value: value,
+			});
+		});
+
+		$('#remove').click(function () {
+			var key = $('#key1').val();
+			$('body').pushToUrl('removeSelectedKey', {
+				key: key
+			});
+		});
+
+		$('#removeAll').click(function () {
+			$('body').pushToUrl('removeAll');
+		});
+	</script>
+</body>
+</html>
