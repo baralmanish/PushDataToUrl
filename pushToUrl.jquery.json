@@ -1,0 +1,36 @@
+{
+  "name": "pushToUrl",
+  "title": "Push Data to URL Params",
+  "description": "jQuery plugin for color manipulation and animation support.",
+  "keywords": [
+      "pushDataToUrl",
+      "npm",
+      "module",
+      "node",
+      "javascript",
+      "jQuery"
+  ],
+  "version": "1.0.0",
+  "author": {
+      "name": "Manish Baral"
+  },
+  "maintainers": [
+      {
+          "name": "Manish Baral",
+          "email": "mail.aarman@gmail.com"
+      }
+  ],
+  "licenses": [
+      {
+          "type": "MIT",
+          "url": "https://github.com/baralmanish/push-data-to-url/blob/master/LICENSE"
+      }
+  ],
+  "bugs": "https://github.com/baralmanish/push-data-to-url/issues",
+  "homepage": "https://github.com/baralmanish/push-data-to-url",
+  "docs": "https://github.com/baralmanish/push-data-to-url",
+  "download": "https://github.com/baralmanish/push-data-to-url",
+  "dependencies": {
+      "jquery": ">=1.5"
+  }
+}

@@ -83,7 +83,7 @@
 
         <h2 class="mt-5">Delete selected key from url params</h2>
         <p class="lead">
-          <code>$('body').pushToUrl('removeSelectedKey', {key: key});</code>
+          <code>$('body').pushToUrl('removeSelected', {key: key});</code>
         </p>
         <div class="row">
           <div class="col-md-4">
@@ -141,7 +141,7 @@
 
     $('#removeSelected').click(function () {
       var key = $('#key1').val();
-      $('body').pushToUrl('removeSelectedKey', {
+      $('body').pushToUrl('removeSelected', {
         key: key
       });
       $('input[type=text]').val('');

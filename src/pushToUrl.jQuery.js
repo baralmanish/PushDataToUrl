@@ -3,52 +3,10 @@
   const BASE_URL = location.protocol + '//' + location.host + location.pathname;
 
   let methods = {
-    init : function() {
-      console.info('pushToUrl.jQuery')
-      let codeDoc = [
-        ["add key and value to url params", "$('body').pushToUrl('add', {key: key, value: value});"],
-        ["delete selected key from url params", "$('body').pushToUrl('removeSelectedKey', {key: key});"],
-        ["remove all url params", "$('body').pushToUrl('removeAll');"]
-      ]
-      console.table(codeDoc);
-    },
-    add : function(options) {
-      const settings = $.extend({
-        key     : null,
-        value   : null,
-      }, options);
-      const key = settings.key;
-      const value = settings.value;
-      if (key && value) {
-        if (detectQueryString()) {
-          urlParams = detectQueryString(key, value);
-        } else {
-          urlParams = key + '=' + value;
-        }
-        const newUrl = BASE_URL + '?' + urlParams;
-        window.history.pushState({path: newUrl}, '', newUrl);
-      }
-    },
-    removeSelectedKey : function(options) {
-      const settings = $.extend({
-        key : null,
-      }, options);
-      const key = settings.key;
-      const count = countUrlParams();
-      if (key && count) {
-        let newUrl = BASE_URL;
-        if (count > 1) {
-          newUrl = location.href.split('?')
-                                      .map((url, i) => !i ? url : url
-                                      .replace(new RegExp(`&${key}=[^&]*|${key}=[^&]*&`), ''))
-                                      .join('?');
-          window.history.pushState({path: newUrl}, '', newUrl);
-        }
-      }
-    },
-    removeAll : function() {
-      window.history.pushState({path: BASE_URL}, '', BASE_URL);
-    }
+    init : init,
+    add : add,
+    removeSelected : removeSelected,
+    removeAll : removeAll
   };
 
   $.fn.pushToUrl = function(methodOrOptions) {
@@ -61,6 +19,59 @@
       $.error( 'Method ' +  methodOrOptions + ' does not exist on pushToUrl.jQuery' );
     }
   };
+
+  function init() {
+    // Add any initialization logic here...
+    console.info('pushToUrl.jQuery')
+    let codeDoc = [
+      ["add key and value to url params", "$('body').pushToUrl('add', {key: key, value: value});"],
+      ["delete selected key from url params", "$('body').pushToUrl('remove', {key: key});"],
+      ["remove all url params", "$('body').pushToUrl('removeAll');"]
+    ]
+    console.table(codeDoc);
+  }
+
+  function add(options) {
+    const settings = $.extend({
+      key     : null,
+      value   : null,
+    }, options);
+    const key = settings.key;
+    const value = settings.value;
+    if (key && value) {
+      if (detectQueryString()) {
+        urlParams = detectQueryString(key, value);
+      } else {
+        urlParams = key + '=' + value;
+      }
+      const newUrl = BASE_URL + '?' + urlParams;
+      window.history.pushState({path: newUrl}, '', newUrl);
+    }
+  }
+
+  function removeSelected(options) {
+    const settings = $.extend({
+      key : null,
+    }, options);
+    const key = settings.key;
+    const count = countUrlParams();
+    let newUrl = BASE_URL;
+    if (count) {
+      if (count > 1) {
+        console.log('>>>', key, count);
+        newUrl = location.href.split('?')
+                              .map((url, i) => !i ? url : url
+                              .replace(new RegExp(`&${key}=[^&]*|${key}=[^&]*&`), ''))
+                              .join('?');
+
+      }
+      window.history.pushState({path: newUrl}, '', newUrl);
+    }
+  }
+
+  function removeAll() {
+    window.history.pushState({path: BASE_URL}, '', BASE_URL);
+  }
 
   function detectQueryString(key = null, value = null) {
     const currentUrl = window.location.href;

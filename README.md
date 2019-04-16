@@ -9,6 +9,6 @@ This is a plugin to add, update and remove data to url params without reloading 
 1. To add data to url param
   `$('body').pushToUrl('add', {key: key, value: value});`
 2. To remove selected data from url param
-  `$('body').pushToUrl('removeSelectedKey', {key: key});`
+  `$('body').pushToUrl('removeSelected', {key: key});`
 2. To remove all data from url param
   `$('body').pushToUrl('removeAll');`
