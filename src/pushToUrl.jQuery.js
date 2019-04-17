@@ -9,7 +9,7 @@
     removeAll : removeAll
   };
 
-  $.fn.pushToUrl = function(methodOrOptions) {
+  window.pushToUrl = function(methodOrOptions) {
     if ( methods[methodOrOptions] ) {
       return methods[ methodOrOptions ].apply( this, Array.prototype.slice.call( arguments, 1 ));
     } else if ( typeof methodOrOptions === 'object' || ! methodOrOptions ) {
@@ -24,9 +24,9 @@
     // Add any initialization logic here...
     console.info('pushToUrl.jQuery')
     let codeDoc = [
-      ["add key and value to url params", "$('body').pushToUrl('add', {key: key, value: value});"],
-      ["delete selected key from url params", "$('body').pushToUrl('remove', {key: key});"],
-      ["remove all url params", "$('body').pushToUrl('removeAll');"]
+      ["add key and value to url params", "pushToUrl('add', {key: key, value: value});"],
+      ["delete selected key from url params", "pushToUrl('remove', {key: key});"],
+      ["remove all url params", "pushToUrl('removeAll');"]
     ]
     console.table(codeDoc);
   }
@@ -58,7 +58,6 @@
     let newUrl = BASE_URL;
     if (count) {
       if (count > 1) {
-        console.log('>>>', key, count);
         newUrl = location.href.split('?')
                               .map((url, i) => !i ? url : url
                               .replace(new RegExp(`&${key}=[^&]*|${key}=[^&]*&`), ''))

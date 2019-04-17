@@ -2,7 +2,8 @@
 This is a plugin to add, update and remove data to url params without reloading the webpage.
 
 
-## Commands
+## Setup Commands
+- `npm install` - Install npm packages
 - `npm run build` - Babel will transpile ES6 => ES5 and minify the code.
 - `npm run prepublish` - Hook for npm. Do all the checks before publishing your module.
 

@@ -57,7 +57,7 @@
 
         <h2 class="mt-5">Add key and value to url params</h2>
         <p class="lead">
-            <code>$('body').pushToUrl('add', {key: key, value: value});</code>
+            <code>pushToUrl('add', {key: key, value: value});</code>
           </p>
         <div class="row">
           <div class="col-md-4">
@@ -83,7 +83,7 @@
 
         <h2 class="mt-5">Delete selected key from url params</h2>
         <p class="lead">
-          <code>$('body').pushToUrl('removeSelected', {key: key});</code>
+          <code>pushToUrl('removeSelected', {key: key});</code>
         </p>
         <div class="row">
           <div class="col-md-4">
@@ -103,7 +103,7 @@
 
         <h2 class="mt-5">Remove all url params</h2>
         <p class="lead mb-5">
-          <code>$('body').pushToUrl('removeAll');</code>
+          <code>pushToUrl('removeAll');</code>
           <br/><br/>
           <button type="button" id="removeAll" class="btn btn-primary">
               Remove All
@@ -127,12 +127,12 @@
 
   <script type="text/javascript" src="../lib/pushToUrl.jQuery.js"></script>
   <script type="text/javascript">
-    $('body').pushToUrl();
+    pushToUrl();
 
     $('#add').click(function () {
       var key = $('#key').val();
       var value = $('#value').val();
-      $('body').pushToUrl('add', {
+      pushToUrl('add', {
         key: key,
         value: value,
       });
@@ -141,14 +141,14 @@
 
     $('#removeSelected').click(function () {
       var key = $('#key1').val();
-      $('body').pushToUrl('removeSelected', {
+      pushToUrl('removeSelected', {
         key: key
       });
       $('input[type=text]').val('');
     });
 
     $('#removeAll').click(function () {
-      $('body').pushToUrl('removeAll');
+      pushToUrl('removeAll');
     });
   </script>
 </body>
