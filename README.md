@@ -20,13 +20,13 @@ This is a plugin to add, update and remove data to url params without reloading 
 ## Implementation
 ### To add data to url param
   ```javascript
-  $('body').pushToUrl('add', {key: key, value: value});
+  pushToUrl('add', {key: key, value: value});
   ```
 ### To remove selected data from url param
   ```javascript
-  $('body').pushToUrl('removeSelected', {key: key});
+  pushToUrl('removeSelected', {key: key});
   ```
 ### To remove all data from url param
   ```javascript
-  $('body').pushToUrl('removeAll');
+  pushToUrl('removeAll');
   ```
