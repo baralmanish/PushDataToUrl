@@ -12,21 +12,29 @@ This is a plugin to add, update and remove data to url params without reloading 
 ### [NPM](https://www.npmjs.com/package/push-data-to-url)
   `npm i push-data-to-url`
 ### [Nuget](https://www.nuget.org/packages/PushDataToUrl)
-  - Package Manager: `PM> Install-Package PushDataToUrl -Version 1.0.0`
-  - .Net CLI: `> dotnet add package PushDataToUrl --version 1.0.0`
-  - Paket CLI: `> paket add PushDataToUrl --version 1.0.0`
+  - Package Manager: `PM> Install-Package PushDataToUrl`
+  - .Net CLI: `> dotnet add package PushDataToUrl`
+  - Paket CLI: `> paket add PushDataToUrl`
 
 
 ## Implementation
-### To add data to url param
+### Initialize
   ```javascript
-  pushToUrl('add', {key: key, value: value});
+  var pushToUrl = new pushToUrl();
   ```
-### To remove selected data from url param
+### Add
   ```javascript
-  pushToUrl('removeSelected', {key: key});
+  pushToUrl.add({key: 'name', value: 'John'});
   ```
-### To remove all data from url param
+### Get Value of Selected Key
   ```javascript
-  pushToUrl('removeAll');
+  pushToUrl.get('name');
+  ```
+### Remove Selected Key
+  ```javascript
+  pushToUrl.remove('name');
+  ```
+### Remove All
+  ```javascript
+  pushToUrl.removeAll();
   ```

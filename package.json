@@ -1,8 +1,8 @@
 {
   "name": "push-data-to-url",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "This is a plugin to add, update and remove data to url params without reloading the webpage.",
-  "main": "src/pushToUrl.jQuery.js",
+  "main": "src/pushToUrl.js",
   "scripts": {
     "clean": "rimraf lib",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -28,7 +28,7 @@
     "module",
     "node",
     "javascript",
-    "jQuery"
+    "JS"
   ],
   "bugs": {
     "url": "https://github.com/baralmanish/push-data-to-url/issues"
@@ -43,8 +43,5 @@
     "babel-preset-minify": "^0.5.0",
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0"
-  },
-  "dependencies": {
-    "npm-check-updates": "^3.1.8"
   }
 }

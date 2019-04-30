@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <title>Push To Url JQuery Plugin</title>
+  <title>Push To Url Javascript Plugin</title>
 
   <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -55,21 +55,26 @@
       <div class="container">
         <h1 class="mt-5">Code Documentation</h1>
 
+        <h2 class="mt-5">Initialize</h2>
+        <p class="lead">
+          <code>var pushToUrl = new pushToUrl();</code>
+        </p>
+
         <h2 class="mt-5">Add key and value to url params</h2>
         <p class="lead">
-            <code>pushToUrl('add', {key: key, value: value});</code>
-          </p>
+          <code>pushToUrl.add({key: 'name', value: 'John'});</code>
+        </p>
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label>Key</label>
-              <input type="text" name="key" value="" id="key" class="form-control" />
+              <input type="text" name="key" value="name" id="akey" class="form-control" required />
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label>Value</label>
-              <input type="text" name="value" value="" id="value" class="form-control" />
+              <input type="text" name="value" value="John" id="value" class="form-control" required />
             </div>
           </div>
           <div class="col-md-4">
@@ -81,15 +86,36 @@
           </div>
         </div>
 
-        <h2 class="mt-5">Delete selected key from url params</h2>
+        <h2 class="mt-5">Get selected key value from url params</h2>
         <p class="lead">
-          <code>pushToUrl('removeSelected', {key: key});</code>
+          <code>pushToUrl.get('name');</code>
         </p>
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label>Key</label>
-              <input type="text" name="key" value="" id="key1" class="form-control" />
+              <input type="text" name="key" value="name" id="gkey" class="form-control" required />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <button type="button" id="get" class="btn btn-primary" style="margin-top: 32px;">
+                Get Value
+              </button>
+            </div>
+          </div>
+        </div>
+        <p class="lead" id="getResult"></p>
+
+        <h2 class="mt-5">Delete selected key from url params</h2>
+        <p class="lead">
+          <code>pushToUrl.remove('name');</code>
+        </p>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Key</label>
+              <input type="text" name="key" value="name" id="rkey" class="form-control" required />
             </div>
           </div>
           <div class="col-md-4">
@@ -103,7 +129,7 @@
 
         <h2 class="mt-5">Remove all url params</h2>
         <p class="lead mb-5">
-          <code>pushToUrl('removeAll');</code>
+          <code>pushToUrl.removeAll();</code>
           <br/><br/>
           <button type="button" id="removeAll" class="btn btn-primary">
               Remove All
@@ -120,35 +146,42 @@
       </div>
     </footer>
 
-
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-  <script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
-
-  <script type="text/javascript" src="../lib/pushToUrl.jQuery.js"></script>
+  <script type="text/javascript" src="../lib/pushToUrl.js"></script>
   <script type="text/javascript">
-    pushToUrl();
+    // Initialize pushToUrl
+    var pushToUrl = new pushToUrl();
 
     $('#add').click(function () {
-      var key = $('#key').val();
+      var key = $('#akey').val();
       var value = $('#value').val();
-      pushToUrl('add', {
+      pushToUrl.add({
         key: key,
         value: value,
       });
-      $('input[type=text]').val('');
+    });
+
+    $('#get').click(function () {
+      var key = $('#gkey').val();
+      var res = pushToUrl.get(key);
+      var html;
+      if (res) {
+        html = '<span class="text-success">The value for <span class="text-uppercase font-weight-bold">' + key + '</span> is <span class="text-uppercase font-weight-bold">' + res + '</span></span>';
+      } else {
+        html = '<span class="text-danger"><span class="text-uppercase font-weight-bold">' + key + '</span> is not found in url parameter</span>'
+      }
+      getResult = $(getResult);
+      getResult.show();
+      getResult.html(html);
     });
 
     $('#removeSelected').click(function () {
-      var key = $('#key1').val();
-      pushToUrl('removeSelected', {
-        key: key
-      });
-      $('input[type=text]').val('');
+      var key = $('#rkey').val();
+      pushToUrl.remove(key);
     });
 
     $('#removeAll').click(function () {
-      pushToUrl('removeAll');
+      pushToUrl.removeAll();
     });
   </script>
 </body>
