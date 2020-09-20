@@ -1,0 +1,12 @@
+'use strict';var _typeof='function'==typeof Symbol&&'symbol'==typeof Symbol.iterator?function(a){return typeof a}:function(a){return a&&'function'==typeof Symbol&&a.constructor===Symbol&&a!==Symbol.prototype?'symbol':typeof a};/*
+ * JavaScript PushToUrl
+ * Author: Manish Baral
+ * Version: 2.0.0
+ * Copyright © 2019
+*/(function(a){'object'==('undefined'==typeof module?'undefined':_typeof(module))&&'object'==_typeof(module.exports)?module.exports=a():'object'==('undefined'==typeof window?'undefined':_typeof(window))?window.pushToUrl=a():console.error('To use this library you need to either use browser or node.js [require()]')})(function(){'use strict';// Private function to initialize
+function a(){console.table([['initialize','var pushToUrl = new pushToUrl()'],['add key and value to url params','pushToUrl.add({key: \'name\', value: \'John\'});'],['get selected key from url params','pushToUrl.get(\'name\');'],['delete selected key from url params','pushToUrl.remove(\'name\');'],['remove all url params','pushToUrl.removeAll();']])}// Private function to detect url query string
+function b(){var a=0<arguments.length&&void 0!==arguments[0]?arguments[0]:null,b=1<arguments.length&&void 0!==arguments[1]?arguments[1]:null,c=window.location.href;if(a||b){var e=new URLSearchParams(location.search);return e.set(a,b),e.toString()}// regex pattern for detecting ? character
+var d=new RegExp(/\?+/g);return d.test(c)}// Private function to count the url query parameters
+function c(){var a=window.location.href,b=a.match(/[a-z\d]+=[a-z\d]+/gi);return b?b.length:0}var d=void 0,e=location.protocol+'//'+location.host+location.pathname,f=function(){a()};// Plugin Constructor
+// Add
+return f.prototype.add=function(a){var c=a.key,f=a.value;if(c&&f){d=b()?b(c,f):c+'='+f;var g=e+'?'+d;return window.history.pushState({path:g},'',g),a}},f.prototype.get=function(){var a=0<arguments.length&&void 0!==arguments[0]?arguments[0]:null;if(a){var b=null,c=[];return location.search.substr(1).split('&').forEach(function(d){c=d.split('='),c[0]===a&&(b=decodeURIComponent(c[1]))}),b}},f.prototype.remove=function(){var a=0<arguments.length&&void 0!==arguments[0]?arguments[0]:null;if(a){var b=c(),d=e;if(b)return 1<b&&(d=location.href.split('?').map(function(b,c){return c?b.replace(new RegExp('&'+a+'=[^&]*|'+a+'=[^&]*&'),''):b}).join('?')),window.history.pushState({path:d},'',d),a}},f.prototype.removeAll=function(){return window.history.pushState({path:e},'',e),e},f});

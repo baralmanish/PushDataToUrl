@@ -7,6 +7,7 @@
   <title>Push To Url Javascript Plugin</title>
 
   <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
 
   <style>
     .bd-placeholder-img {
@@ -33,7 +34,10 @@
   <header>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#">PUSH VALUE TO URL PARAMETERS</a>
+      <a class="navbar-brand" href="https://github.com/baralmanish/PushDataToUrl" target="_blank">
+        <i class="fab fa-github"></i>
+        PUSH VALUE TO URL PARAMETERS
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -53,7 +57,15 @@
   <!-- Begin page content -->
   <main role="main" class="flex-shrink-0">
       <div class="container">
-        <h1 class="mt-5">Code Documentation</h1>
+        <h1 class="mt-5">Installation</h1>
+        <h2 class="mt-5"><a href="https://www.npmjs.com/package/push-data-to-url" target="_blank">NPM</a></h2>
+        <p class="lead">
+          <code>npm i push-data-to-url</code>
+        </p>
+
+        <hr/>
+
+        <h1 class="mt-5">Documentation</h1>
 
         <h2 class="mt-5">Initialize</h2>
         <p class="lead">
@@ -142,12 +154,17 @@
       <div class="container">
         <span class="text-muted">
             Copyright (c) 2019 Manish Baral <a href="mailto:mail.aarman@gmail.com">mail.aarman@gmail.com</a>
+            &nbsp; | &nbsp;
+            <a href="https://github.com/baralmanish/" target="_blank">
+              <i class="fab fa-github"></i>
+              Github
+            </a>
         </span>
       </div>
     </footer>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="../lib/pushToUrl.js"></script>
+  <script type="text/javascript" src="./pushToUrl.js"></script>
   <script type="text/javascript">
     // Initialize pushToUrl
     var pushToUrl = new pushToUrl();
