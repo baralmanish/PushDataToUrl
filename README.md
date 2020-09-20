@@ -16,6 +16,8 @@ This is a plugin to add, update and remove data to url params without reloading 
   - .Net CLI: `> dotnet add package PushDataToUrl`
   - Paket CLI: `> paket add PushDataToUrl`
 
+## DEMO
+To view the demo please click [here](https://push2url.netlify.app)
 
 ## Implementation
 ### Initialize
